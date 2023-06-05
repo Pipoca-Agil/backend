@@ -1,11 +1,11 @@
 import express from 'express';
 import 'express-async-errors';
 import cors from 'cors';
-// import index from './routes/route';
+import userRouter from './routes/users.route';
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-// app.use(Route);
+app.use(userRouter);
 
 export default app;
