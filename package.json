@@ -6,7 +6,8 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "dev": "tsnd src/index.ts",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "generate": "npx prisma generate"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
