@@ -4,6 +4,8 @@
     "rootDir": ".",
     "target": "es2019",
     "module": "commonjs",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "typeRoots": [
       "src/@types",
       "./node_modules/@types"
@@ -13,5 +15,7 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
