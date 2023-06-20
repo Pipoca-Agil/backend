@@ -14,6 +14,8 @@ Antes de começar, certifique-se de ter os seguintes pré-requisitos instalados 
 
 ### Configuração
 
+#### Localmente
+
 Siga as etapas abaixo para configurar e executar a API localmente:
 
 1. Clone este repositório em sua máquina local;
@@ -38,9 +40,13 @@ Siga as etapas abaixo para configurar e executar a API localmente:
 
 A API será iniciada e estará disponível em http://localhost:3001.
 
+#### Remoto
+
+A API estará disponível na seguinte URL: `https://backend-production-a1f0.up.railway.app/`
+
 ### Testando as Rotas
 
-Agora você pode usar o Insomnia (ou qualquer outro cliente de API REST) para testar as rotas da API. Certifique-se de usar a URL base `http://localhost:3001` para todas as requisições.
+Agora você pode usar o Insomnia (ou qualquer outro cliente de API REST) para testar as rotas da API. Certifique-se de usar a URL base `http://localhost:3001` para todas as requisições ou `https://backend-production-a1f0.up.railway.app/` para testes.
 
 ## 📚 Documentação (endpoints)
 
@@ -50,7 +56,7 @@ Documentação da API para o site Pipoca Ágil
 
 | Método | Funcionalidade                          | URL                         |
 | ------ | --------------------------------------- | --------------------------- |
-| `POST` | Realiza o cadastro do usuário na aplicação | <http://localhost:3001/user> |
+| `POST` | Realiza o cadastro do usuário na aplicação | <https://backend-production-a1f0.up.railway.app/user> |
 
 <details>
   <summary>A estrutura do <code>body</code> da requisição deverá seguir o padrão abaixo:</summary>
