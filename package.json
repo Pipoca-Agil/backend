@@ -2,7 +2,7 @@
   "name": "pipoca-agil-backend",
   "version": "1.0.0",
   "description": "backend app for pipoca agil website",
-  "main": "src/index.ts",
+  "main": "index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
     "dev": "tsnd src/index.ts",
