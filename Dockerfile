@@ -1,13 +1,17 @@
 FROM node:16.14
 
-WORKDIR /app
+WORKDIR /
 
 COPY package*.json ./
 
-RUN ["npm", "i"] 
+COPY ./prisma ./prisma
 
-COPY . .
+RUN npm install
 
 RUN npx prisma generate
 
-CMD ["npm", "run", "start"]
+EXPOSE 3000
+
+COPY . .
+
+CMD ["npm","run", "prestart"]

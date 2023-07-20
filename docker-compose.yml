@@ -1,0 +1,31 @@
+version: '3.9'
+services:
+  backend:
+    build: .
+    container_name: backend
+    ports:
+      - '${PORT}:${PORT}'
+    env_file:
+      - .env
+    environment:
+      - DB_USER=${MYSQL_USER}
+      - DB_PASSWORD=${MYSQL_PASSWORD}
+      - DB_HOST=${DATABASE_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${MYSQL_DATABASE}
+      - DATABASE_URL=mysql://root:${MYSQL_ROOT_PASSWORD}@${DATABASE_HOST}:${DB_PORT}/${MYSQL_DATABASE}
+    command: npm start
+    depends_on:
+      - database
+  database:
+    image: mysql:8.0.31
+    container_name: ${DATABASE_HOST}
+    ports:
+      - '${DB_PORT}:3306'
+    env_file:
+      - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+  
