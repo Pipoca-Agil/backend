@@ -24,10 +24,15 @@ const UserZodSchema = z.object({
     required_error: 'Senha é obrigatório',
     invalid_type_error: 'Senha deve ser uma string',
   })
-    .min(8, { message: 'Senha deve ter 8 caracteres ou mais' })
+    .min(8, { message: 'Senha deve ter entre 8 e 12 caracteres' })
+    .max(12, { message: 'Senha deve ter entre 8 e 12 caracteres' })
     .regex(/[a-z]/, { message: 'A senha deve conter pelo menos uma letra minúscula' })
     .regex(/[A-Z]/, { message: 'A senha deve conter pelo menos uma letra maiúscula' })
-    .regex(/[0-9]/, { message: 'A senha deve conter pelo menos um número' }),
+    .regex(/[0-9]/, { message: 'A senha deve conter pelo menos um número' })
+    .regex(
+      /[!@#$%^&*()\-=_+{}[\]|:;"'<>,.?/]/,
+      { message: 'A senha deve conter pelo menos um caractere especial' },
+    ),
 
   role: z.string({
     required_error: 'A função é obrigatória',
