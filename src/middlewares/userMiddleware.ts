@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { IUser, UserZodSchema } from '../interfaces/UserZodSchema';
 import CustomError from '../errors/CustomErrors';
 
-function validateUser(user: IUser): IUser {
+export function validateUser(user: IUser): IUser {
   try {
     return UserZodSchema.parse(user);
   } catch (error) {

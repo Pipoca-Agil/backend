@@ -21,7 +21,7 @@ services:
     image: mysql:8.0.31
     container_name: ${DATABASE_HOST}
     ports:
-      - '${DB_PORT}:3306'
+      - '${DB_PORT}:${DB_PORT}'
     env_file:
       - .env
     environment:
