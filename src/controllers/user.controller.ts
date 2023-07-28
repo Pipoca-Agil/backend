@@ -31,8 +31,8 @@ export default class UserController {
     try {
       const token = await this.userModel.signin({ email, password });
       return res.status(201).json({ token });
-    } catch (err: any) {
-      return res.status(err.status).json({ message: err.message });
+    } catch (err) {
+      return res.status(500).json({ err });
     }
   }
 }
