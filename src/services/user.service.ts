@@ -40,7 +40,7 @@ export default class UserPrismaModel {
     const userExists = await this.prisma.user.findUnique({ where: { email: credentials.email } });
     if (!userExists) throw new CustomError(403, 'Ocorreu um problema ao fazer login, Verificar seu e-mail ou senha, ou crie uma conta');
 
-    const passwordIsValid = bcrypt.compare(credentials.password, userExists.password);
+    const passwordIsValid = await bcrypt.compare(credentials.password, userExists.password);
     if (!passwordIsValid) throw new CustomError(403, 'Ocorreu um problema ao fazer login, Verificar seu e-mail ou senha, ou crie uma conta'); 
 
     const tokenPayload = {
