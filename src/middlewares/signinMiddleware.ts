@@ -1,11 +1,11 @@
 import { NextFunction, Request, Response } from 'express';
 import { z } from 'zod';
-import { IUser, UserZodSchema } from '../interfaces/UserZodSchema';
+import { ISignInInput, signinInput } from '../interfaces/SigninInputZodSchema';
 import CustomError from '../errors/CustomErrors';
 
-export function validateUser(user: IUser): IUser {
+export function validateSignIn(user: ISignInInput): ISignInInput {
   try {
-    return UserZodSchema.parse(user);
+    return signinInput.parse(user);
   } catch (error) {
     if (error instanceof z.ZodError) {
       const details = error.flatten();
@@ -16,10 +16,10 @@ export function validateUser(user: IUser): IUser {
   }
 }
 
-const validateUserFields = (req: Request, res: Response, next: NextFunction) => {
+const validateSigninFields = (req: Request, res: Response, next: NextFunction) => {
   try {
-    const user: IUser = req.body;
-    req.body = validateUser(user);
+    const user: ISignInInput = req.body;
+    req.body = validateSignIn(user);
     next();
   } catch (error) {
     if (error instanceof CustomError) {
@@ -30,4 +30,4 @@ const validateUserFields = (req: Request, res: Response, next: NextFunction) => 
   }
 };
 
-export default validateUserFields;
+export default validateSigninFields;

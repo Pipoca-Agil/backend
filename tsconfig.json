@@ -4,6 +4,7 @@
     "rootDir": ".",
     "target": "es2019",
     "module": "commonjs",
+    "types": ["jest"],
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "typeRoots": [
@@ -16,6 +17,6 @@
     "skipLibCheck": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
   ]
 }

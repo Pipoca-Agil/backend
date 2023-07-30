@@ -25,4 +25,14 @@ export default class UserController {
 
     return res.status(201).json({ token });
   }
+
+  async signin(req: Request, res: Response) {
+    const { email, password } = req.body;
+    try {
+      const token = await this.userModel.signin({ email, password });
+      return res.status(201).json({ token });
+    } catch (err) {
+      return res.status(500).json({ err });
+    }
+  }
 }
