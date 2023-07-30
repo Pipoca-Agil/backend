@@ -18,7 +18,7 @@ describe('signin related tests', () => {
     };
 
     await userService.create(user);
-    await expect(() => userService.signin({ ...user, password: 'umasenhaincorreta' })).rejects.toThrow(new CustomError(403, 'Ocorreu um problema ao fazer login, Verificar seu e-mail ou senha, ou crie uma conta'));
+    await expect(() => userService.signin({ ...user, password: 'umasenhaincorreta' })).rejects.toThrow(new CustomError(401, 'Ocorreu um problema ao fazer login, Verificar seu e-mail ou senha, ou crie uma conta'));
   });
 
   it('should throw an wrong email error', async () => {
@@ -33,7 +33,7 @@ describe('signin related tests', () => {
 
     await userService.create(user);
     await expect(() => userService.signin({ ...user, email: 'umemailerrado@email.com' })).rejects
-      .toThrow(new CustomError(403, 'Ocorreu um problema ao fazer login, Verificar seu e-mail ou senha, ou crie uma conta'));
+      .toThrow(new CustomError(401, 'Ocorreu um problema ao fazer login, Verificar seu e-mail ou senha, ou crie uma conta'));
   });
 
   it('should return an jwt token', async () => {
