@@ -16,7 +16,7 @@ export const signinInput = z.object({
     .regex(/[A-Z]/, { message: 'A senha deve conter pelo menos uma letra maiúscula' })
     .regex(/[0-9]/, { message: 'A senha deve conter pelo menos um número' })
     .regex(
-      /[!@#$%^&*()\-=_+{}[\]|:;"'<>,.?/]/,
+      /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/,
       { message: 'A senha deve conter pelo menos um caractere especial' },
     ),
 });

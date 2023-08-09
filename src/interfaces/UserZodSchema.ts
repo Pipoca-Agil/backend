@@ -11,9 +11,8 @@ const UserZodSchema = z.object({
     required_error: 'O sobrenome é obrigatório',
     invalid_type_error: 'O sobrenome deve ser uma string',
   })
-    .min(3, { message: 'O sobrenome deve ter no mínimo 3 caracteres' })
-    .optional(),
-
+    .min(3, { message: 'O sobrenome deve ter no mínimo 3 caracteres' }),
+    
   email: z.string({
     required_error: 'Email é obrigatório',
     invalid_type_error: 'Email deve ser uma string',
@@ -30,7 +29,7 @@ const UserZodSchema = z.object({
     .regex(/[A-Z]/, { message: 'A senha deve conter pelo menos uma letra maiúscula' })
     .regex(/[0-9]/, { message: 'A senha deve conter pelo menos um número' })
     .regex(
-      /[!@#$%^&*()\-=_+{}[\]|:;"'<>,.?/]/,
+      /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]+/,
       { message: 'A senha deve conter pelo menos um caractere especial' },
     ),
 

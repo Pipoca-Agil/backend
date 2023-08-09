@@ -29,7 +29,7 @@ export default class UserPrismaModel {
       return await createdUser;
     } catch (error) {
       if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2002') {
-        throw new CustomError(400, 'Email já está em uso. Por favor, escolha outro.');
+        throw new CustomError(409, 'Email já está em uso. Por favor, escolha outro.');
       }
 
       throw error;
