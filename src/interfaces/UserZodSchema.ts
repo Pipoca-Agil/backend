@@ -7,14 +7,14 @@ const UserZodSchema = z.object({
     invalid_type_error: 'O nome deve ser uma string',
   })
     .min(3, { message: 'O nome deve ter no mínimo 3 caracteres' })
-    .regex(/^[a-zA-Z0-9]+$/, { message: 'Não é permitido uso de números e caracteres especiais em nome.' }),
+    .regex(/^[a-zA-Z]+$/, { message: 'Não é permitido uso de números e caracteres especiais em nome.' }),
 
   surname: z.string({
     required_error: 'O sobrenome é obrigatório',
     invalid_type_error: 'O sobrenome deve ser uma string',
   })
     .min(3, { message: 'O sobrenome deve ter no mínimo 3 caracteres' })
-    .regex(/^[a-zA-Z0-9]+$/, { message: 'Não é permitido uso de números e caracteres especiais em sobrenome.' }),
+    .regex(/^[a-zA-Z]+$/, { message: 'Não é permitido uso de números e caracteres especiais em sobrenome.' }),
     
   email: z.string({
     required_error: 'Email é obrigatório',
