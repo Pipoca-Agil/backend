@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import UserPrismaModel from '../services/user.service';
-import CustomError from '../errors/CustomErrors';
-import TokenHelper from '../helpers/tokenHelper';
+import UserPrismaModel from '../../application/services/auth';
+import CustomError from '../../domain/errors/CustomErrors';
+import TokenHelper from '../utils/jwt';
 
 export default class UserController {
   private userModel: UserPrismaModel;

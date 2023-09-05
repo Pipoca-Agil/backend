@@ -1,9 +1,10 @@
+/* eslint-disable max-len */
 import { NextFunction, Request, Response } from 'express';
 import { z } from 'zod';
-import { ISignInInput, signinInput } from '../interfaces/SigninInputZodSchema';
-import CustomError from '../errors/CustomErrors';
+import { ISignInInput, signinInput } from '../../domain/interfaces/SigninInputZodSchema';
+import CustomError from '../../domain/errors/CustomErrors';
 
-export function validateSignIn(user: ISignInInput): ISignInInput {
+export function validateSignInFields(user: ISignInInput): ISignInInput {
   try {
     return signinInput.parse(user);
   } catch (error) {
@@ -16,10 +17,10 @@ export function validateSignIn(user: ISignInInput): ISignInInput {
   }
 }
 
-const validateSigninFields = (req: Request, res: Response, next: NextFunction) => {
+const validateSignin = (req: Request, res: Response, next: NextFunction) => {
   try {
     const user: ISignInInput = req.body;
-    req.body = validateSignIn(user);
+    req.body = validateSignInFields(user);
     next();
   } catch (error) {
     if (error instanceof CustomError) {
@@ -30,4 +31,4 @@ const validateSigninFields = (req: Request, res: Response, next: NextFunction) =
   }
 };
 
-export default validateSigninFields;
+export default validateSignin;

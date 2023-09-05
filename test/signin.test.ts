@@ -1,9 +1,9 @@
 /* eslint-disable max-lines-per-function */
 /* eslint-disable max-len */
 import { v4 as uuid } from 'uuid';
-import TokenHelper from '../src/helpers/tokenHelper';
-import UserPrismaModel from '../src/services/user.service';
-import CustomError from '../src/errors/CustomErrors';
+import UserPrismaModel from '../src/application/services/auth';
+import CustomError from '../src/domain/errors/CustomErrors';
+import TokenGenerator from '../src/infra/utils/jwt';
 
 /* eslint-disable mocha/no-mocha-arrows */
 describe('signin related tests', () => {
@@ -38,7 +38,7 @@ describe('signin related tests', () => {
 
   it('should return an jwt token', async () => {
     const userService = new UserPrismaModel();
-    const tokenHelper = new TokenHelper();
+    const tokenGenerator = new TokenGenerator();
     const email = `${uuid()}@email.com`;
 
     const user = {
@@ -49,7 +49,7 @@ describe('signin related tests', () => {
     await userService.create(user);
 
     const token = await userService.signin({ email: user.email, password: user.password });
-    const extractedPayload = tokenHelper.verifyToken(token);
+    const extractedPayload = tokenGenerator.verify(token);
     expect(extractedPayload.email).toStrictEqual(user.email);
   });
 });
