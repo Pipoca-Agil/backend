@@ -4,8 +4,8 @@
   "description": "backend app for pipoca agil website",
   "main": "src/index.ts",
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "dev": "tsnd src/index.ts",
+    "start": "ts-node src/presentation/index.ts",
+    "dev": "tsnd src/presentation/index.ts",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "generate": "npx prisma generate",
     "migrate": "npx prisma migrate dev",
@@ -41,6 +41,8 @@
   },
   "dependencies": {
     "@prisma/client": "^4.15.0",
+    "@types/nodemailer": "^6.4.9",
+    "@types/sinon": "^10.0.16",
     "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
@@ -48,6 +50,8 @@
     "express-async-errors": "3.1.1",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "6.1.8",
+    "nodemailer": "^6.9.4",
+    "sinon": "^15.2.0",
     "uuid": "^9.0.0",
     "zod": "3.11.6"
   }

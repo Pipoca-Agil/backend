@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { z } from 'zod';
-import { IUser, UserZodSchema } from '../interfaces/UserZodSchema';
-import CustomError from '../errors/CustomErrors';
+import { IUser, UserZodSchema } from '../../domain/interfaces/UserZodSchema';
+import CustomError from '../../domain/errors/CustomErrors';
 
 export function validateUser(user: IUser): IUser {
   try {

@@ -2,8 +2,8 @@ import express from 'express';
 import 'express-async-errors';
 import cors from 'cors';
 import { PrismaClient } from '@prisma/client';
-import errorMiddleware from './middlewares/errorMiddleware'; 
-import userRoute from './routes/user.route';
+import errorMiddleware from '../application/middlewares/errorMiddleware'; 
+import userRoute from '../infra/routes/user.route';
 
 const app = express();
 // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
