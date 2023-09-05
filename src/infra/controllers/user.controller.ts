@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import UserPrismaModel from '../../application/services/auth';
-import CustomError from '../../domain/errors/CustomErrors';
 import TokenHelper from '../utils/jwt';
 
 export default class UserController {
@@ -13,9 +12,7 @@ export default class UserController {
   }
 
   public async create(req: Request, res: Response) {
-    const newUser = await this.userModel.create(req.body);
-
-    if (!newUser) throw new CustomError(400, 'Invalid Format');
+    await this.userModel.create(req.body);
 
     return res.status(201).json();
   }
