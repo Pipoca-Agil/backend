@@ -3,7 +3,7 @@ import 'express-async-errors';
 import cors from 'cors';
 import { PrismaClient } from '@prisma/client';
 import errorMiddleware from '../application/middlewares/errorMiddleware'; 
-import userRoute from '../infra/routes/user.route';
+import userRoute from '../infra/routes/user';
 
 const app = express();
 // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
