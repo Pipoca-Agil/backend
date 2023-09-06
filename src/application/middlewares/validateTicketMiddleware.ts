@@ -7,6 +7,7 @@ import Hasher from '../../infra/cryptograph/hasher';
 
 export default async function validateTicket(req: Request, res: Response, next: NextFunction) {
   const { hash } = req.query as { hash: string };
+  if (!hash) next();
   const { email } = req.body;
   const prisma = new PrismaClient();
   const hasher = new Hasher();

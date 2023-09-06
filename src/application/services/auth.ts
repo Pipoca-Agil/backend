@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable max-lines-per-function */
 /* eslint-disable max-len */
 import { Prisma, PrismaClient } from '@prisma/client';
@@ -66,7 +67,7 @@ export default class UserPrismaModel {
     const ticket = await this.prisma.ticket.findFirst({ where: { userId: userExists.id } });
 
     if (ticket) {
-      if (ticket.situation === TicketSituations.OPEN) throw new CustomError(401, 'Conta ainda não verificada');
+      if (ticket.situation == TicketSituations.OPEN) throw new CustomError(401, 'Conta ainda não verificada');
       await this.prisma.ticket.delete({ where: { id: ticket.id } });
     }
     
