@@ -4,8 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verificação de Email</title>
+    <style>     
+        @import url('https://fonts.googleapis.com/css2?family=Inter&family=Maven+Pro:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-block: 27px;
+        }
+        .title {
+            font-family: 'Maven Pro';
+            font-weight: 700;
+            font-size: 32px;
+        }
+        p {
+            font-family: 'Inter';
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        p.bottom {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        a {
+            text-decoration: none;
+            padding: 10px;
+            font-size: 22px;
+            font-family: 'Inter';
+            color: white;
+            background-color: #B33B3B;
+            border-radius: 125px;
+            width: 150px;
+            text-align: center;
+        }
+
+        .division {
+            background-color: black;
+            width: 600px;
+            height: 2px;
+            margin-top: 20px;
+            margin-bottom: 70px;
+        }
+
+    </style>
 </head>
 <body>
-    Olá {{name}}, por favor verifique seu email em http://localhost:3001/signin?hash={{hash}}
+    <div class="main">
+        <img src="https://timevermelhopipocaagil.vercel.app/logoemail.svg" alt="Logo pipoca ágil">
+        <h1 class="title">Confirmação de Email</h1>
+        <img src="https://timevermelhopipocaagil.vercel.app/avataremail.svg" alt="Avatar pipoca ágil">
+        <p>Olá {{name}}</p>
+        <p>Sua conta no Clube de Assinantes do Pipoca Ágil está quase pronta. Para ativá-la, por favor confirme o seu endereço de e-mail clicando no botão abaixo</p>
+        <a href="http://localhost:3001/signin?hash={{hash}}">Confirmar</a>
+        <div class="division"></div>
+        <p class="bottom">Pipoca Ágil</p>
+        <p class="bottom">Você está recebendo esse e-mail porque se inscreveu no site. Caso não tenha sido você, entre em contato.</p>
+    </div>
 </body>
 </html>
