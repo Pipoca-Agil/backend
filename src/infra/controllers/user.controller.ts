@@ -22,4 +22,9 @@ export default class UserController {
     const token = await this.userModel.signin({ email, password });
     return res.status(200).json({ token });
   }
+
+  // async loginUser(req: Request, res: Response) {
+  //   const {email, password} = req.body;
+  //   const query = await this.userModel.login()
+  // }
 }

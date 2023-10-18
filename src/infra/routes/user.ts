@@ -11,5 +11,5 @@ const userController = new UserController();
 
 userRoute.post('/user', validateUserFields, (req, res) => userController.create(req, res));
 userRoute.post('/signin', validateSigninFields, validateTicket, (req, res) => userController.signin(req, res));
-
+// userRoute.get('/userLogin', )
 export default userRoute;

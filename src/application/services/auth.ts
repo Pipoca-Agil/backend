@@ -81,4 +81,5 @@ export default class UserPrismaModel {
     const token = this.tokenHelper.generate(tokenPayload);
     return token;
   }
+
 }
